@@ -1,17 +1,23 @@
 import matplotlib.pyplot as plt
+import random as rand
 
 
-points = [(1, 2), (1, 3), (2, 0.5)]
+numPoints = 100
 
-pointsX = [point[0] for point in points]
-pointsY = [point[1] for point in points]
+pointsX = [rand.random() for ix in range(numPoints)]
+pointsY = [rand.random() for iy in range(numPoints)]
+
+# points = [(1, 2), (1, 3), (2, 0.5)]
+#
+# pointsX = [point[0] for point in points]
+# pointsY = [point[1] for point in points]
 
 bestMinX = min(pointsX[0], pointsX[1])
 bestMaxX = max(pointsX[0], pointsX[1])
 bestMinY = min(pointsY[0], pointsY[1])
 bestMaxY = max(pointsY[0], pointsY[1])
 
-length = len(points)
+length = len(pointsX)
 numPairs = length // 2
 
 for pairIndex in range(1, numPairs):
@@ -40,4 +46,8 @@ if length % 2 == 1:
         bestMinY = pointsY[-1]
 
 plt.scatter(pointsX, pointsY)
+plt.hlines(bestMaxY, bestMinX, bestMaxX, 'r')
+plt.hlines(bestMinY, bestMinX, bestMaxX, 'r')
+plt.vlines(bestMinX, bestMinY, bestMaxY, 'r')
+plt.vlines(bestMaxX, bestMinY, bestMaxY, 'r')
 plt.show()
