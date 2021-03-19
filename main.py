@@ -62,5 +62,5 @@ for shape in shapes:
         plt.title('Gaussian random points with mu=0, sig=0.5')
     elif shape == 'circle':
         plt.title('Random points inside a circle')
-    plt.savefig('Report/' + shape)
+    plt.savefig('Report/Plots/' + shape)
     plt.show()
